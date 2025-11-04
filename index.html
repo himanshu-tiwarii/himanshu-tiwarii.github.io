@@ -106,44 +106,37 @@ Rashtriya Raksha University, Gandhinagar.
     <!-- Overlay -->
     <div id="overlay" class="overlay"></div>
 
-  <script>
-  // Get elements
-  var nameTrigger = document.getElementById('nameTrigger');
-  var closePopup = document.getElementById('closePopup');
-  var popup = document.getElementById('popup');
-  var overlay = document.getElementById('overlay');
+    <!-- Background Music -->
+<audio id="bgAudio" loop>
+  <source src="./bgaudio/background.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<!-- Unmute Button -->
+<button id="toggleAudio" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  z-index: 2000;
+">🔇 Play Music</button>
+
+<script>
   var audio = document.getElementById('bgAudio');
   var toggleBtn = document.getElementById('toggleAudio');
 
-  // Try to play audio on page load
+  // Try to play immediately on page load
   window.addEventListener('load', function() {
       audio.play().catch(function(error) {
           console.log('Autoplay prevented by browser:', error);
       });
   });
-
-  // Combined click handler for name
-  nameTrigger.onclick = function() {
-      // Show popup
-      popup.style.display = 'block';
-      overlay.style.display = 'block';
-
-      // Play audio
-      audio.play().catch(function(error) {
-          console.log('Autoplay prevented by browser:', error);
-      });
-  };
-
-  // Close popup
-  closePopup.onclick = function() {
-      popup.style.display = 'none';
-      overlay.style.display = 'none';
-  };
-
-  overlay.onclick = function() {
-      popup.style.display = 'none';
-      overlay.style.display = 'none';
-  };
 
   // Toggle mute/unmute or play/pause
   toggleBtn.onclick = function() {
