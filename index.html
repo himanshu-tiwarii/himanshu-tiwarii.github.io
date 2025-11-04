@@ -106,30 +106,67 @@ Rashtriya Raksha University, Gandhinagar.
     <!-- Overlay -->
     <div id="overlay" class="overlay"></div>
 
-    <script>
-        // Get elements
-        var nameTrigger = document.getElementById('nameTrigger');
-        var closePopup = document.getElementById('closePopup');
-        var popup = document.getElementById('popup');
-        var overlay = document.getElementById('overlay');
+    <!-- Background Music -->
+<audio id="bgAudio" autoplay loop muted>
+  <source src="./bgaudio/background.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 
-        // Open pop-up function
-        nameTrigger.onclick = function() {
-            popup.style.display = 'block';
-            overlay.style.display = 'block';
-        };
+<!-- Unmute Button -->
+<button id="toggleAudio" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  z-index: 2000;
+">🔇 Unmute</button>
 
-        // Close pop-up function
-        closePopup.onclick = function() {
-            popup.style.display = 'none';
-            overlay.style.display = 'none';
-        };
+<script>
+  // Get elements
+  var nameTrigger = document.getElementById('nameTrigger');
+  var closePopup = document.getElementById('closePopup');
+  var popup = document.getElementById('popup');
+  var overlay = document.getElementById('overlay');
+  var audio = document.getElementById('bgAudio');
+  var toggleBtn = document.getElementById('toggleAudio');
 
-        // Close pop-up when overlay is clicked
-        overlay.onclick = function() {
-            popup.style.display = 'none';
-            overlay.style.display = 'none';
-        };
-    </script>
+  // Open pop-up
+  nameTrigger.onclick = function() {
+      popup.style.display = 'block';
+      overlay.style.display = 'block';
+  };
+
+  // Close pop-up
+  closePopup.onclick = function() {
+      popup.style.display = 'none';
+      overlay.style.display = 'none';
+  };
+
+  // Close pop-up when overlay is clicked
+  overlay.onclick = function() {
+      popup.style.display = 'none';
+      overlay.style.display = 'none';
+  };
+
+  // Toggle mute/unmute
+  toggleBtn.onclick = function() {
+      if (audio.muted) {
+          audio.muted = false;
+          toggleBtn.textContent = '🔊 Mute';
+      } else {
+          audio.muted = true;
+          toggleBtn.textContent = '🔇 Unmute';
+      }
+  };
+</script>
+</body>
+</html>
+
 </body>
 </html>
