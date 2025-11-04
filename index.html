@@ -106,109 +106,6 @@ Rashtriya Raksha University, Gandhinagar.
     <!-- Overlay -->
     <div id="overlay" class="overlay"></div>
 
-
-    <!-- Three Dot Button -->
-<button id="infoBtn" style="
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: rgba(0,0,0,0.6);
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 18px;
-  z-index: 2000;
-">⋮</button>
-
-<!-- Pop-Up Box -->
-<div id="popup" class="popup" style="
-    display: none;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    border: 2px solid #ddd;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-    z-index: 1000;
-    max-width: 90%;
-    width: 300px;
-    text-align: center;
-    border-radius: 15px;
-">
-    <!-- Pop-up Box -->
-<div id="popup" class="popup">
-    <p>Results-oriented Project | Operations Manager with 4 years of experience in leading cross-functional teams to deliver complex projects on time and within budget. Proven track record in planning, executing, and finalizing projects with a focus on stakeholder satisfaction and strategic alignment. A good communicator and problem-solver with a commitment to driving continuous improvement and achieving business objectives.</p>
-    <button id="closePopup">Close</button>
-</div>
-
-<!-- Single Pop-Up Box -->
-<div id="popup" class="popup">
-    <p>Results-oriented Project | Operations Manager with 4 years of experience in leading cross-functional teams to deliver complex projects on time and within budget. Proven track record in planning, executing, and finalizing projects with a focus on stakeholder satisfaction and strategic alignment. A good communicator and problem-solver with a commitment to driving continuous improvement and achieving business objectives.</p>
-    <button id="closePopup">Close</button>
-</div>
-
-<!-- Single Overlay -->
-<div id="overlay" class="overlay"></div>
-
-<!-- Overlay & Pop-up CSS (no duplicates) -->
-<style>
-.overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 900;
-}
-.popup {
-    display: none;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    border: 2px solid #ddd;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    z-index: 1000;
-    max-width: 90%;
-    width: 300px;
-    text-align: center;
-    border-radius: 15px;
-}
-#toggleAudio, #infoBtn {
-    z-index: 2000;
-}
-</style>
-
-<script>
-// Show pop-up when name is clicked
-document.getElementById('nameTrigger').addEventListener('click', function() {
-    document.getElementById('popup').style.display = 'block';
-    document.getElementById('overlay').style.display = 'block';
-});
-
-// Close pop-up
-document.getElementById('closePopup').addEventListener('click', function() {
-    document.getElementById('popup').style.display = 'none';
-    document.getElementById('overlay').style.display = 'none';
-});
-
-// Optional: close if overlay is clicked
-document.getElementById('overlay').addEventListener('click', function() {
-    document.getElementById('popup').style.display = 'none';
-    document.getElementById('overlay').style.display = 'none';
-});
-</script>
-
-    
-
     <!-- Background Music -->
 <audio id="bgAudio" loop>
   <source src="./bgaudio/background.mp3" type="audio/mpeg">
@@ -252,5 +149,6 @@ document.getElementById('overlay').addEventListener('click', function() {
       }
   };
 </script>
+
 </body>
 </html>
