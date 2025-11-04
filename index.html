@@ -107,7 +107,7 @@ Rashtriya Raksha University, Gandhinagar.
     <div id="overlay" class="overlay"></div>
 
     <!-- Background Music -->
-<audio id="bgAudio" autoplay loop muted>
+<audio id="bgAudio" loop>
   <source src="./bgaudio/background.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
@@ -125,48 +125,30 @@ Rashtriya Raksha University, Gandhinagar.
   cursor: pointer;
   font-size: 14px;
   z-index: 2000;
-">🔇 Unmute</button>
+">🔇 Play Music</button>
 
 <script>
-  // Get elements
-  var nameTrigger = document.getElementById('nameTrigger');
-  var closePopup = document.getElementById('closePopup');
-  var popup = document.getElementById('popup');
-  var overlay = document.getElementById('overlay');
   var audio = document.getElementById('bgAudio');
   var toggleBtn = document.getElementById('toggleAudio');
 
-  // Open pop-up
-  nameTrigger.onclick = function() {
-      popup.style.display = 'block';
-      overlay.style.display = 'block';
-  };
+  // Try to play immediately on page load
+  window.addEventListener('load', function() {
+      audio.play().catch(function(error) {
+          console.log('Autoplay prevented by browser:', error);
+      });
+  });
 
-  // Close pop-up
-  closePopup.onclick = function() {
-      popup.style.display = 'none';
-      overlay.style.display = 'none';
-  };
-
-  // Close pop-up when overlay is clicked
-  overlay.onclick = function() {
-      popup.style.display = 'none';
-      overlay.style.display = 'none';
-  };
-
-  // Toggle mute/unmute
+  // Toggle mute/unmute or play/pause
   toggleBtn.onclick = function() {
-      if (audio.muted) {
-          audio.muted = false;
+      if (audio.paused) {
+          audio.play();
           toggleBtn.textContent = '🔊 Mute';
       } else {
-          audio.muted = true;
-          toggleBtn.textContent = '🔇 Unmute';
+          audio.pause();
+          toggleBtn.textContent = '🔇 Play Music';
       }
   };
 </script>
-</body>
-</html>
 
 </body>
 </html>
