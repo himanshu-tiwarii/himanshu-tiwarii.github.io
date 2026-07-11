@@ -45,12 +45,30 @@
         }
     </style>
 </head>
-<body>
-    <section>
-        <video autoplay muted loop id="myVideo">
-            <source src="./Background/background.mp4" type="video/mp4">
-            Your browser does not support HTML5 video.
-        </video>
+<section>
+    <video autoplay muted loop playsinline id="myVideo">
+        <source id="videoSource" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+</section>
+
+<script>
+    // List of background videos
+    const videos = [
+        "./Background/background.mp4",
+        "./Background/background2.mp4"
+    ];
+
+    // Pick a random video
+    const randomVideo = videos[Math.floor(Math.random() * videos.length)];
+
+    // Set the video source
+    const video = document.getElementById("myVideo");
+    const source = document.getElementById("videoSource");
+
+    source.src = randomVideo;
+    video.load();
+</script>
         
         <div class="text-container">
             <p>Hello, I'M</p>
