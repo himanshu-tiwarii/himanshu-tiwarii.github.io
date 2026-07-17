@@ -1,172 +1,1056 @@
+/* ==============================
+   GLOBAL RESET
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background-color: #f4f4f4;
-    margin: 0px;
-    padding: 0px;
+    background: #f4f4f4;
+    overflow-x: hidden;
+    font-family: "Raleway", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 ul {
     list-style: none;
 }
 
-a {
-    text-decoration: none;
-}
+
+/* ==============================
+   HERO SECTION
+============================== */
 
 section {
     width: 100%;
-    height: 95vh;
-    background-repeat: no-repeat;
-    background-size: cover;
+    min-height: 100vh;
     position: relative;
+    overflow: hidden;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
-    position: relative;
-    background-color: #FFFFFF;
-    box-shadow: 2px 2px 12px rgba(0,0,0,0.2);
-    padding: 0px 5%;
-}
+
+/* ==============================
+   BACKGROUND VIDEO
+============================== */
 
 video {
-    object-fit: cover;
-    height: 99%;
-    width: 100%;
-    left: 0;
-    z-index: -1;
-    -o-filter: blur(5px);
-    filter: blur(5px);
     position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    object-fit: cover;
+
+    filter: blur(4px);
+    transform: scale(1.05);
+
+    z-index: -2;
 }
 
-.text-container p:nth-child(1) {
-    font-family: raleway light;
-    font-weight: bold;
-    color: #3d3d3d;
-    font-size: 22px;
+
+/* Dark overlay over video */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:
+    rgba(255,255,255,0.45);
+
+    z-index:-1;
+
 }
 
-.text-container p:nth-child(2) {
-    font-family: raleway light;
-    font-weight: bold;
-    letter-spacing: 1px;
-    color: #1a1a1a;
-    font-size: 60px;
+
+/* ==============================
+   NAVBAR
+============================== */
+
+nav {
+
+    width:100%;
+
+    height:70px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 5%;
+
+    background:rgba(255,255,255,0.75);
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.15);
+
 }
 
-.text-container p:nth-child(3) {
-    font-family: raleway light;
-    color: #403e3e;
-    font-size: 30px;
-    letter-spacing: 2px;
-    line-height: 40px;
-}
 
-.text-container p:nth-child(4) {
-    font-family: myriead pro regular;
-    color: #403e3e;
-    font-size: 30px;
-    line-height: 30px;
-}
 
-.text-container p {
-    line-height: 0px;
-    margin: 45px 0px 25px;
-}
+/* ==============================
+   HERO TEXT
+============================== */
+
 
 .text-container {
-    position: absolute;
-    left: 13%;
-    top: 42%;
-    transform: translate(-13%, -42%);
+
+    position:absolute;
+
+    top:50%;
+    left:8%;
+
+    transform:translateY(-50%);
+
+    width:90%;
+
+    max-width:750px;
+
+    animation:fadeUp 1s ease;
+
 }
+
+
+.text-container p {
+
+    margin:18px 0;
+
+    line-height:1.4;
+
+}
+
+
+
+/* Hello */
+
+.text-container p:nth-child(1){
+
+    font-weight:700;
+
+    color:#333;
+
+    font-size:
+    clamp(18px,2vw,25px);
+
+}
+
+
+
+/* Name */
+
+.text-container p:nth-child(2){
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    color:#111;
+
+    font-size:
+    clamp(38px,7vw,70px);
+
+}
+
+
+
+/* Designation */
+
+.text-container p:nth-child(3){
+
+    color:#333;
+
+    letter-spacing:1px;
+
+    font-size:
+    clamp(18px,3vw,32px);
+
+    line-height:1.5;
+
+}
+
+
+
+/* Extra text */
+
+.text-container p:nth-child(4){
+
+    color:#444;
+
+    font-size:
+    clamp(16px,2vw,28px);
+
+}
+
+
+
+/* ==============================
+   BUTTON
+============================== */
+
 
 .text-container button {
-    width: 130px;
-    height: 42px;
-    border-radius: 10px;
-    font-family: raleway extralight;
-    font-weight: bold;
-    font-size: 14px;
-    letter-spacing: 2px;
-    outline: none;
-    margin: 0px 10px;
+
+
+    width:150px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:12px;
+
+    margin:20px 5px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    transition:.3s ease;
+
 }
 
-.text-container button:hover {
-    background-color: #000000;
-    box-shadow: 8px 8px 48px rgba(0,0,0,0.4);
-    transition: all ease 0.2s;
-}
 
 .down-cv {
-    background-color: #0b0b0b;
-    color: #FFFFFF;
-    border: none;
+
+    background:#0b0b0b;
+
+    color:white;
+
 }
+
+
+
+.text-container button:hover {
+
+    transform:
+    translateY(-4px);
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.35);
+
+}
+
+
 
 button:active {
-    transform: scale(1.1);
+
+    transform:scale(.95);
+
 }
+
+
+/* ==============================
+   ANIMATION
+============================== */
+
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity:0;
+
+        transform:
+        translateY(40px);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:
+        translateY(-50%);
+
+    }
+
+}
+/* ==============================
+   ABOUT / SOCIAL CARD
+============================== */
+
 
 .about-container {
-    width: 80%;
-    height: 100px;
-    background: #FFFFFF;
-    border-radius: 20px;
-    box-shadow: 2px 2px 12px rgba(0,0,0,0.2);
-    display: flex;
-    margin: -7% auto 20px auto;
-    position: relative;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
+    width:min(90%,900px);
+
+    min-height:120px;
+
+    margin:40px auto;
+
+    padding:25px;
+
+    background:
+    rgba(255,255,255,.75);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:25px;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,.15);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+    animation:cardAppear 1s ease;
+
 }
+
+
 
 .about-container:hover {
-    background-color: #F5F5F5;
-    box-shadow: 8px 8px 48px rgba(0,0,0,0.4);
-    transition: all ease 0.5s;
+
+    transform:
+    translateY(-5px);
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,.25);
+
+    transition:.4s ease;
+
 }
+
+
+
+/* ==============================
+   SOCIAL ICONS
+============================== */
+
 
 .social-icons {
-    display: flex;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
 }
+
+
 
 .social-icons a {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #e6e3e3;
-    margin: 20px 10px;
-    border-radius: 50%;
-    padding-top: 8px;
-    padding-left: 8px;
-    padding-right: 8px;
-    transition: background-color 0.5s ease, box-shadow 0.5s ease, transform 0.3s ease;
-    /* Added properties for smooth scaling */
+
+    width:55px;
+
+    height:55px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    background:
+
+    rgba(230,227,227,.9);
+
+
+    border-radius:50%;
+
+
+    transition:
+
+    .35s ease;
+
 }
 
+
+
 .social-icons a:hover {
-    background-color: #000000;
-    box-shadow: 2px 2px 12px rgba(0,0,0,0.2);
-    transform: scale(1.1); /* Zoom effect on hover */
+
+
+    background:#000;
+
+
+    transform:
+    translateY(-8px)
+    scale(1.1);
+
+
+    box-shadow:
+
+    0 10px 25px rgba(0,0,0,.3);
+
 }
+
+
+
+.social-icons i,
+.social-icons span {
+
+
+    color:#111;
+
+    transition:.3s ease;
+
+}
+
+
 
 .social-icons a:hover i,
 .social-icons a:hover span {
-    color: #FFFFFF;
+
+    color:white;
+
 }
 
-.social-icons i {
-    color: #000000;
+
+
+/* ==============================
+   POPUP BOX
+============================== */
+
+
+.popup {
+
+    display:none;
+
+    position:fixed;
+
+    left:50%;
+
+    top:50%;
+
+
+    transform:
+    translate(-50%,-50%);
+
+
+    width:min(90%,450px);
+
+
+    padding:30px;
+
+
+    background:white;
+
+
+    border-radius:25px;
+
+
+    text-align:center;
+
+
+    box-shadow:
+
+    0 20px 60px rgba(0,0,0,.35);
+
+
+    z-index:1000;
+
+
+    animation:
+
+    popupShow .3s ease;
+
 }
 
-.social-icons span {
-    color: #000000;
+
+
+.popup p {
+
+
+    font-size:17px;
+
+    line-height:1.7;
+
+    color:#333;
+
+}
+
+
+
+.popup button {
+
+
+    margin-top:20px;
+
+
+    padding:12px 30px;
+
+
+    border:none;
+
+
+    border-radius:10px;
+
+
+    background:#000;
+
+
+    color:white;
+
+
+    cursor:pointer;
+
+
+    font-weight:bold;
+
+}
+
+
+
+.popup button:hover {
+
+    opacity:.8;
+
+}
+
+
+
+
+/* ==============================
+   OVERLAY
+============================== */
+
+
+.overlay {
+
+    display:none;
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+
+    width:100%;
+
+    height:100%;
+
+
+    background:
+
+    rgba(0,0,0,.55);
+
+
+    z-index:999;
+
+}
+
+
+
+
+
+/* ==============================
+   AUDIO BUTTON
+============================== */
+
+
+#toggleAudio {
+
+
+    position:fixed;
+
+
+    right:25px;
+
+
+    bottom:25px;
+
+
+    background:
+
+    rgba(0,0,0,.75);
+
+
+    color:white;
+
+
+    border:none;
+
+
+    padding:12px 18px;
+
+
+    border-radius:15px;
+
+
+    cursor:pointer;
+
+
+    font-size:14px;
+
+
+    backdrop-filter:blur(10px);
+
+
+    z-index:2000;
+
+
+    transition:.3s ease;
+
+}
+
+
+
+#toggleAudio:hover {
+
+
+    transform:
+    translateY(-5px);
+
+
+    background:#000;
+
+}
+
+
+
+
+/* ==============================
+   ANIMATIONS
+============================== */
+
+
+@keyframes popupShow {
+
+
+    from {
+
+        opacity:0;
+
+        transform:
+        translate(-50%,-45%);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:
+        translate(-50%,-50%);
+
+    }
+
+}
+
+
+
+@keyframes cardAppear {
+
+
+    from {
+
+        opacity:0;
+
+        transform:
+        translateY(40px);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:
+        translateY(0);
+
+    }
+
+}
+/* ==============================
+   TABLET RESPONSIVE
+============================== */
+
+
+@media (max-width:1024px){
+
+
+    .text-container{
+
+        left:6%;
+
+        width:90%;
+
+    }
+
+
+    .about-container{
+
+        width:90%;
+
+    }
+
+
+    .social-icons{
+
+        gap:12px;
+
+    }
+
+
+}
+
+
+
+/* ==============================
+   MOBILE RESPONSIVE
+============================== */
+
+
+@media (max-width:768px){
+
+
+    section{
+
+        min-height:100vh;
+
+    }
+
+
+    video{
+
+        filter:blur(2px);
+
+        transform:scale(1.1);
+
+    }
+
+
+
+    body::before{
+
+        background:
+
+        rgba(255,255,255,.55);
+
+    }
+
+
+
+
+    /* Hero Center */
+
+
+    .text-container{
+
+
+        top:45%;
+
+        left:50%;
+
+
+        transform:
+
+        translate(-50%,-45%);
+
+
+        text-align:center;
+
+
+        width:90%;
+
+
+    }
+
+
+
+    .text-container p:nth-child(1){
+
+
+        font-size:18px;
+
+
+    }
+
+
+
+    .text-container p:nth-child(2){
+
+
+        font-size:
+
+        clamp(32px,9vw,45px);
+
+
+        letter-spacing:1px;
+
+
+    }
+
+
+
+    .text-container p:nth-child(3){
+
+
+        font-size:18px;
+
+
+        line-height:1.6;
+
+
+    }
+
+
+
+    .text-container p:nth-child(4){
+
+
+        font-size:16px;
+
+
+    }
+
+
+
+
+    .text-container button{
+
+
+        width:220px;
+
+
+        margin-top:15px;
+
+
+    }
+
+
+
+
+    /* Social card */
+
+
+    .about-container{
+
+
+        width:92%;
+
+
+        padding:20px;
+
+
+        border-radius:20px;
+
+
+    }
+
+
+
+
+    .social-icons{
+
+
+        gap:12px;
+
+
+    }
+
+
+
+    .social-icons a{
+
+
+        width:45px;
+
+
+        height:45px;
+
+
+    }
+
+
+
+
+
+    #toggleAudio{
+
+
+        right:15px;
+
+
+        bottom:15px;
+
+
+        padding:10px 14px;
+
+
+    }
+
+
+
+}
+
+
+
+
+/* ==============================
+   SMALL PHONES
+============================== */
+
+
+@media (max-width:480px){
+
+
+
+    nav{
+
+
+        height:55px;
+
+    }
+
+
+
+
+    .text-container{
+
+
+        top:42%;
+
+
+    }
+
+
+
+    .text-container p:nth-child(2){
+
+
+        font-size:32px;
+
+
+    }
+
+
+
+
+    .text-container p:nth-child(3){
+
+
+        font-size:16px;
+
+
+    }
+
+
+
+    .text-container button{
+
+
+        width:100%;
+
+
+        max-width:240px;
+
+
+    }
+
+
+
+
+
+    .social-icons{
+
+
+        gap:8px;
+
+
+    }
+
+
+
+
+    .social-icons a{
+
+
+        width:42px;
+
+
+        height:42px;
+
+
+    }
+
+
+
+
+    .popup{
+
+
+        padding:20px;
+
+    }
+
+
+
+
+    .popup p{
+
+
+        font-size:15px;
+
+
+    }
+
+
+
+}
+
+
+
+
+/* ==============================
+   LARGE SCREENS
+============================== */
+
+
+@media (min-width:1400px){
+
+
+
+    .text-container{
+
+
+        left:12%;
+
+
+    }
+
+
 }
