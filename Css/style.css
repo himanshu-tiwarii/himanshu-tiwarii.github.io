@@ -1060,3 +1060,26 @@ button:active {
 
 
 }
+@media(max-width:768px){
+
+    html, body {
+
+        overflow:auto;
+
+    }
+
+
+    section {
+
+        height:100vh;
+
+    }
+
+
+    .about-container {
+
+        margin:-40px auto 20px;
+
+    }
+
+}
